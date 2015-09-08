@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Hover-List</title>
+	<script src="jquery-2.1.4.min.js"></script>
+	<script>
+	// $(document).ready(function(){
+	// 	var area = $('ul.list_style');
+	// 	var timespan = 1000;
+	// 	var timeID;
+	// 	area.hover(function(){
+	// 		clearInterval(timeID);
+	// 	},function(){
+	// 		timeID = setInterval(function(){
+	// 			var moveline = area.find('li:first');
+	// 			var lineheight = moveline.height();
+	// 			moveline.animate({
+	// 				marginTop:'-' + parseInt(lineheight) + 'px'
+	// 			},500,function(){
+	// 				moveline.css('marginTop',0).appendTo(area);
+	// 			})
+	// 		},timeID)
+	// 	}).trigger('mouseleave');
+	// })
+		// $(document).ready(function(){
+		// 	// $('ul.list_style li:first').append($('ul.list_style'));
+		// 	$('ul.list_style').hover(function(){
+		// 		$(this).css({
+		// 			'backgroundColor':'red'
+		// 		},function(){
+		// 			// $(this).css({
+		// 				// 'backgroundColor':'blue'
+		// 				alert('hello');
+		// 			// })
+		// 		})
+		// 	// })
+		// })
+		$(document).ready(function(){
+			$('ul.list_style').hover(function() {
+				// alert('hello');
+				// console.log('come in');
+				$(this).css('backgroundColor','blue');
+			}, function() {
+				// alert('hello');
+				// console.log('come out');
+				$(this).css('backgroundColor','green');
+
+			});			
+		})
+
+	</script>
+	<style>
+	.list_style{
+		height:90px;
+	}
+	</style>
+</head>
+<body>
+	<ul class="list_style">
+		<li>JQuery是一个强大的JavaScript库。</li>
+		<li>JQuery极大的简化了JavaScript编程。</li>
+		<li>JQuery很容易学习。</li>
+		<li>JQuery拥有供ajax开发的丰富函数。</li>
+	</ul>
+</body>
+</html>

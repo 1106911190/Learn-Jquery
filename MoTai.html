@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>MoTai</title>
+	<script src="jquery-2.1.4.min.js"></script>
+	<script>
+	$(document).ready(function(){
+		$('.mask').css('height',$(window).height()+'px');
+		$('button').click(function(){
+			$('.mask,.Pic').fadeIn('slow');
+		})
+		$('.close img').click(function(){
+			$('.mask,.Pic').hide();
+		})
+	})
+	</script>
+	<style>
+	*{
+		margin: 0;
+		padding: 0;
+	}
+	.mask{
+		background-color: #999999;
+		opacity:0.5;
+		width: 100%;
+		position: absolute;
+		top: 0;
+		z-index: 10;
+		display: none;
+		/*height: 100%;*/
+	}
+	body{
+		text-align: center;
+		position: relative;
+	}
+	.Pic{
+		width: 700px;
+		height: 500px;
+		background-color: white;
+		margin: 50px auto 0;
+		position: relative;
+		z-index: 11;
+		display: none;
+	}
+	.close img{
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: 18px;
+		height: 18px;
+	}
+	.content img{
+		margin: 40px auto 0;
+		width: 600px;
+		height: 400px;
+	}
+	</style>
+</head>
+<body>
+	<button>Click Me</button>
+	<div class="mask">
+		
+	</div>
+	<div class="Pic">
+		<div class="close">
+			<img src="images/close.jpg" alt="CLOSE">
+		</div>
+		<div class="content">
+			<img src="images/1.jpg" alt="PICTURE">
+		</div>
+		
+	</div>
+</body>
+</html>

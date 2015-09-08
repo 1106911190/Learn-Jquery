@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>列表截取</title>
+	<script src="jquery-2.1.4.min.js"></script>
+	<script>
+	$(document).ready(function(){
+		// $('.list li ul ').each
+		$('.list > li > ul > li').each(function(){
+			var inText = $(this).text();
+			if(inText.length > 5){
+				$(this).text(inText.substr(0,5) + "...");
+			}
+		})
+		// var List =  $('.list > li > ul >li');
+		// var inText = List.text();
+		// if(inText.length > 15){
+		// 	$(this).text(inText.substr(0,15) + "...");
+		// }
+		$('.list > li').addClass('horizontal');
+		$('.list li:not(.horizontal)').addClass('sub_level');
+	})
+	</script>
+	<style>
+	.horizontal{
+		float: left;
+		list-style: none;
+		margin: 10px;
+	}
+	.sub_level{
+		background-color: #ccc;
+	}
+	</style>
+</head>
+<body>
+	<ul class="list">
+		<li>
+			Jquery
+			<ul>
+				<li>JQuery是一个非常强大的JavaScript库，全世界有很多人在使用它。</li>
+				<li>JQuery也很强大，用jQuery你可以很方便的完成实现你想要的功能。</li>
+				<li>JQuery在全世界都有很大的影响，几乎每一个网站项目都会用到它。</li>
+				<li>JQuery是如此的神奇，所以我也要很刻苦努力认真的去学习使用它。 </li>
+			</ul>
+		</li>
+		<li>
+			Bootstrap
+			<ul>
+				<li>在以前从来没有听说过bootstrap，因为我不知道竟然前端也都有库。</li>
+				<li>后来看到别人用bootstrap觉得很神奇，虽然我当时并不知道怎么用。</li>
+				<li>直到我自己也开始学习bootstrap才知道原来前端有那么多的库函数。</li>
+				<li>而且恨一个库函数都是非常强大的，比如说这个入门级的bootstrap。</li>
+			</ul>
+		</li>
+		<li>
+			AmuseUI
+			<ul>
+				<li>这个只听说过还没有用过，不过看名字已经很让人有用它的冲动。</li>
+				<li>看名字应该是和Bootstrap类似的前端库吧，和JqueryUI一样的 。</li>
+				<li>确实前端是有很多库函数的，像一些牛逼闪闪的人都是自己写的。</li>
+				<li>大公司也几乎都有自己的库函数，前端需要学习的好东西很多吖。</li>
+			</ul>
+		</li>
+		<li>
+			Angela
+			<ul>
+				<li>这是听某位阿里的大神提起过，据说他还因为知道这个而留在阿里。</li>
+				<li>也是个很神奇的JavaScript框架，跟JQuery一样牛逼闪闪的好东西。</li>
+				<li>各路牛逼闪闪的人物创造了各种牛逼闪闪的框架吖库吖什么的东西。</li>
+				<li>既造福了后人也给了后来的前端学习者很大的压力吖，学习的太多。</li>
+			</ul>
+		</li>
+	</ul>
+</body>
+</html>

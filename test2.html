@@ -1,0 +1,124 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr"> 
+<head> 
+<meta http-equiv="content-type" content="text/html;charset=gb2312"> 
+<script type="text/javascript" src="jquery-2.1.4.min.js"></script> 
+
+<title>FV.Zone jQuery demos...</title> 
+<script type="text/javascript"> 
+$(document).ready(function(){ 
+$(".box h3").toggle(function(){ 
+$(this).next(".text").animate({height: 'toggle', opacity: 'toggle'}, "slow"); 
+         $(this).addClass("arrow"); 
+         return false; 
+
+},function(){ 
+         $(this).next(".text").animate({height: 'toggle', opacity: 'toggle'}, "slow"); 
+         $(this).removeClass("arrow"); 
+         return false; 
+}); 
+}); 
+</script> 
+<style> 
+
+/* 初始化样式 */ 
+div,form,img,ul,ol,li,dl,dt,dd {margin: 0; padding: 0; border: 0;} 
+h1,h2,h3,h4,h5,h6 { margin:0; padding:0;} 
+
+h1 { margin: 42px 0 20px; font-size: 18px; text-align: center; } 
+
+.clear { clear: both; } 
+a { color:#000; text-decoration: none; } 
+a:hover { color:#999; text-decoration: none; } 
+
+body { 
+    margin: 0 auto; 
+    width: 960px; 
+    background: #282c2f; 
+    color: #d1d9dc; 
+    font: 12px 'Lucida Grande', Verdana, sans-serif; 
+} 
+
+#layout { 
+    margin: 0 auto; 
+    width: 280px; 
+    } 
+
+.text { 
+    line-height: 22px; 
+    padding: 0 6px; 
+    color:#666; 
+} 
+
+.box h3 { 
+    font-size: 12px; 
+    padding-left: 6px; 
+    line-height: 22px; 
+    background: #99CC00 url(images/1.jpg) no-repeat right -17px; 
+    font-weight:bold; 
+    color:#fff; 
+    border: 1px solid #669900; 
+    height:22px; 
+} 
+
+.arrow { 
+    background: #99CC00 url(images/2.jpg) no-repeat right 5px; 
+} 
+
+.box h3 a { color:#fff; } 
+.box h3 a:hover { color:#eee; } 
+
+.box { 
+    position: relative; 
+    background: #363C41; 
+    border: 5px solid #4A5055; 
+} 
+.ar { 
+    line-height: 22px; 
+    position: absolute; 
+    top: 3px; 
+    right: 6px; 
+    display: block; 
+    width: 16px; 
+    height: 16px; 
+} 
+
+</style> 
+
+</head> 
+<body> 
+<h1>jQuery demos animate(params[,duration[,easing[,callback]]])</h1> 
+<div id="layout"> 
+
+<div class="box"> 
+<h3><span>fdsfds<a href="#" class="ar"></a></span></h3> 
+    <div class="text"> 
+    animate(params[,duration[,easing[,callback]]])
+ 
+    用于创建自定义动画的函数。
+ 
+    这个函数的关键在于指定动画形式及结果样式属性对象。这个对象中每个属性都表示一个可以变化的样式属性（如"height"、"top"或"opacity"）。 
+    
+ 
+    注意：所有指定的属性必须用骆驼形式，比如用marginLeft代替margin-left. 
+    
+ 
+    
+ 
+    而每个属性的值表示这个样式属性到多少时动画结束。如果是一个数值，样式属性就会从当前的值渐变到指定的值。如果使用的是"hide"、"show"或"toggle"这样的字符串值，则会为该属性调用默认的动画形式。 
+    </div> 
+</div> 
+
+
+ 
+
+<div class="box"> 
+<h3>fdsfds<a href="#" class="ar"></a></h3> 
+    <div class="text"> 
+    在 jQuery 1.2 中，你可以使用 em 和 % 单位。另外，在 jQuery 1.2 中，你可以通过在属性值前面指定 "+=" 或 "-=" 来让元素做相对运动。 
+    </div> 
+</div> 
+
+</div> <!-- endlayout --> 
+</body> 
+</html> 

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>轮播</title>
+	<script src="jquery-2.1.4.min.js"></script>
+	<script>
+	$(document).ready(function(){
+		for (var i = 0; i < $('.menu li').length; i++) {
+			$('.menu li:eq('+i+')').css({
+				'left':parseInt($('.menu li').width())*(i-1) + 'px'
+			})
+		};
+		// setInterval(function(){
+  //           // alert("hello");   
+  //           for (var i = 0; i < $('.menu li').length; i++) {
+  //              	var This = $('.menu li:eq('+i+')');
+  //              	var Left = parseInt(This.css('left'));
+  //              	This.animate({
+  //              		left:parseInt(Left + $('.menu li').width()) +　'px'
+  //              	})
+  //              };  
+		// 	// for (var i = 0; i < $('.menu li').length; i++) {
+		// 	// 	if(parseInt($('.menu li:eq('+i+')').css('left')) > ($('.menu li').length - 1) * parseInt($('.menu li').width())){
+		// 	// 		// alert('hekllo');
+		// 	// 		$('.menu li:eq('+i+')').css({
+		// 	// 			'left':'0'
+		// 	// 		})
+		// 	// 	}
+		// 	// };     
+		// 	// Alert();
+		// 	// fun();           
+		// }, 5000)
+		// // alert("hello");
+		// setInterval(function(){
+				
+		// },5000)
+
+		// function fun(){
+		// 	$('.menu li').each(function(){
+		// 		if(parseInt($(this).css('left')) >= ($('.menu li').length - 1)*parseInt($(this).width())){
+		// 			$(this).css({
+		// 				// 'left':'0'	
+		// 				// 'width':'900px'
+		// 				// 'height':'900px'
+		// 			})
+		// 			alert(parseInt($(this).css('left')));
+		// 		}
+		// 	})				
+		// }
+
+		// function Alert(){
+		// 	alert("hello");
+		// }
+		$('.menu').hover(function() {
+			// alert('heiilo');
+		}, function() {
+			// alert("Bom");
+			setInterval(function(){
+			 for (var i = 0; i < $('.menu li').length; i++) {
+			    	var This = $('.menu li:eq('+i+')');
+			    	var Left = parseInt(This.css('left'));
+			    	// This.animate({
+			    	// 	left:parseInt(Left + $('.menu li').width()) +　'px'
+			    	// })
+					if(Left >= ($('.menu li').length - 2)*parseInt(This.css('width'))){
+						This.css({
+							'left':'-' + parseInt(This.css('width')) + 'px'	
+							// 'width':'900px'
+							// 'height':'900px'
+						})
+					}else{
+						This.animate({
+							left:parseInt(Left + $('.menu li').width()) +　'px'
+						})
+					}
+			    };  
+			},3000)
+				
+		});
+
+	})
+	</script>
+	<style>
+	*{
+		margin: 0;
+		padding: 0;
+	}
+	.menu{
+		list-style: none;
+		/*display:inline;*/
+		position: relative;
+		width: 550px;
+		height: 300px;
+		overflow: hidden;
+		margin: 100px auto 0;
+	}
+	.menu li{
+		/*display: inline;*/
+		position: absolute;
+		list-style: none;
+		/*float: left;*/
+	}
+	.menu li img{
+		width: 550px;
+		height: 300px;
+	}
+	</style>
+</head>
+<body>
+	<ul class="menu">
+		<li><img src="images/1.jpg" alt="#"></li>
+		<li><img src="images/2.jpg" alt="#"></li>
+		<li><img src="images/3.jpg" alt="#"></li>
+		<li><img src="images/4.jpg" alt="#"></li>
+	</ul>
+</body>
+</html>

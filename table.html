@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="jquery-2.1.4.min.js"></script>
+	<script>
+	$(document).ready(function(){
+		$('table tr').mouseover(function(){
+			$(this).addClass('over');
+		}).mouseout(function() {
+			$(this).removeClass('over');
+		});
+		$('table tr:even').addClass('alt');
+		$('a.afflink').mouseover(function(){
+			window.status=this.title;
+			return true;
+		}).mouseout(function() {
+			window.status='Done';
+			return true;
+		});;
+	})
+	</script>
+	<style>
+	table{
+		width: 50%;
+		text-align: center;
+		border: 2px solid #f1f1f1;
+		line-height: 1.4em;	
+	}
+	tr{
+		border-bottom: 2px solid #000;
+		background-color: #00ffff;
+		cursor: pointer;
+	}
+	td{
+		padding: 6px 20px;
+	}
+	tr.alt td{
+		background-color: #ecf6fc;
+	}
+	tr.over td{
+		background-color: #bcd4ec;
+	}
+	</style>
+</head>
+<body>
+	<h1>这是一个表格</h1>
+	<table>
+		<thead>
+			<tr>
+				<th>姓名</th>
+				<th>年龄</th>
+				<th>电话</th>
+				<th>地址</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>杨文强</td>
+				<td>18</td>
+				<td>18607571914</td>
+				<td>陕西省西安市长安区</td>
+			</tr>
+			<tr>
+				<td>Windard</td>
+				<td>18</td>
+				<td>18607571914</td>
+				<td>湖北省黄冈市武穴市</td>
+			</tr>			
+			<tr>
+				<td>杨文强</td>
+				<td>18</td>
+				<td>18607571914</td>
+				<td>陕西省西安市长安区</td>
+			</tr>
+			<tr>
+				<td>Windard</td>
+				<td>18</td>
+				<td>18607571914</td>
+				<td>湖北省黄冈市武穴市</td>
+			</tr>			
+			<tr>
+				<td>杨文强</td>
+				<td>18</td>
+				<td>18607571914</td>
+				<td>陕西省西安市长安区</td>
+			</tr>
+			<tr>
+				<td>Windard</td>
+				<td>18</td>
+				<td>18607571914</td>
+				<td>湖北省黄冈市武穴市</td>
+			</tr>
+		</tbody>
+	</table>
+	<a href="http://www.wenqiangyang.com" title="this is my web" class="afflink">hello world</a>
+</body>
+</html>

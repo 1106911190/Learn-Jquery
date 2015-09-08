@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Animatetion</title>
+	<script src="jquery-2.1.4.min.js"></script>
+	<script>
+	$(document).ready(function(){
+		// $('body').append("<div class='div'></div>");
+
+		$('form button').click(function(){
+			// $('.div').slideToggle();
+			 // $("#reac").animate({top: '50px'}, "slow");
+
+			$('#reac').animate({
+				// width:"300px",
+				// height:"300px",
+				opacity:'0.5',
+				// position:'absolute',
+				left:'+300px',
+				top:'+300px'
+			},3000)
+		})
+
+
+
+
+
+	})
+	</script>
+	<style>
+	#reac{
+		width: 200px;
+		height: 200px;
+		position: absolute;
+		background-color: #999999;
+	}
+	</style>
+</head>
+<body>
+	<form action="#">
+		<button>^_^</button>
+	</form>	
+	<div id="reac">xiaolu</div>
+
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>hello world</title>
+	<script src="jquery-2.1.4.min.js"></script>
+	<script>
+	$(document).ready(function(){
+		$('body').hide();
+		$('body').fadeIn();
+
+		$('#control button').click(function(){
+			if(this.id=='show'){
+				$('#hello').fadeIn();
+			}else if(this.id=='hide'){
+				$('#hello').fadeOut();
+			}else{
+				if($('#hello').html()=='hello world'){
+					$('#hello').text($(this).html());
+				}else{
+					$('#hello').text('hello world');
+				}
+				
+			}
+		})
+	});
+	</script>
+	<style>
+	#hello{
+		width: 200px;
+		height: 50px;
+		background-color: #f1f1f1;
+	}
+	</style>
+</head>
+<body>
+	<div id="control">
+		<button id="show">显示</button>
+		<button id="hide">隐藏</button>
+		<button id="change">你好，世界</button>
+	</div>
+	<p id="hello">hello world</p>
+
+</body>
+</html>

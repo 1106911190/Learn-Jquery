@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Nav</title>
+	<script src="jquery-2.1.4.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			var html="<ul class='subnav'>"
+				+"<li>二级导航</li>"
+				+"<li>二级导航</li>"
+				+"<li>二级导航</li>"
+					  +"</ul>";
+			$('body').append(html);
+			$('.subnav').hide();
+
+			$('nav ul li').mouseover(function(){
+				// $(this).css('backgroundColor','red');
+				var x = $(this).position().left;
+				var y = $(this).position().top + $(this).outerHeight();
+				// alert($(this).position().left);
+				// alert( $(this).position().top + $(this).outerHeight());
+				$('.subnav').css({
+					'position':'absolute',
+					'left':x,
+					'top':y
+					// 'margin':'0',
+					// 'padding':'5px 10px'
+				}).show();
+			});
+			$('nav ul li').mouseout(function(){
+				$('.subnav').hide();
+			});
+			$('.subnav').mouseover(function(){
+				$(this).show();
+			});
+			$('.subnav').mouseout(function(){
+				$(this).hide();
+			});
+
+
+		});
+	</script>
+	<style>
+	body{
+		font-family: MicroSoft YaHei;
+
+	}
+	#nav{
+		position: fixed;
+		background-color: #f1f1f1;
+		width: 100%;
+		box-shadow: 3px 5px 5px #999999;
+	}
+	.subnav{
+		background-color: #f1f1f1;
+		line-height: 1.4em;
+		margin: 8px 20px;
+		padding:0;
+		/*border-radius: 5px;*/
+	}
+	.subnav li{
+		line-height: 1.4px;
+		padding: 15px 25px;
+		cursor: pointer;
+		/*margin: 0 10px;*/	
+	}
+	ul,ul li{
+		list-style: none;
+	}
+	nav ul{
+		/*width: 40%;*/
+		/*list-style: none;*/
+		margin: 0;
+	}
+	nav ul li{
+		display: inline-block;
+		margin: 0 20px;
+		padding: 10px 15px;
+		cursor: pointer;
+		line-height: 1.4em;
+	}
+	ul li:hover{
+		background-color: #272822;
+		color:white;
+	}
+	</style>
+</head>
+<body>
+	<nav id="nav">
+		<ul class="mainmenu">
+			<li class="menu">一级菜单</li>
+			<li class="menu">一级菜单</li>
+			<li class="menu">一级菜单</li>
+			<li class="menu">一级菜单</li>
+		</ul>
+	</nav>
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>nav-2</title>
+	<script src="jquery-1.11.3.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			var Nav = function(){
+
+			};
+			Nav.prototype = {
+				changeContent:function(num){
+					var html='';
+					switch(num){
+						case 1:
+							html='<li>竹园餐厅</li>'
+							 		+'<li>海棠餐厅</li>'
+									+'<li>丁香餐厅</li>';
+							break;
+						case 2:
+							html='<li>新生军训</li>'
+									+'<li>百团大战</li>'
+									+'<li>期中期末</li>';
+							break;
+						case 3:
+							html='<li>源代码</li>'
+									+'<li>数学建模</li>'
+									+'<li>电子竞赛</li>';
+							break;
+					}
+					$('.subnav').html(html);
+				}
+				,bind:function(){
+					var that = this;
+					for (var i = 1; i < 4 ; i++) {
+						$('nav ul li:eq('+i+')').mouseover({num:i},function(event){
+							var x = $(this).position().left;
+							var y = $(this).position().top + $(this).outerHeight();
+							that.changeContent(event.data.num);
+							$('.subnav').css({
+								'position':'absolute',
+								'top':y,
+								'left':x
+							}).show();
+						})
+					};
+					$('nav ul li').mouseout(function(){
+						$('.subnav').hide();
+					})
+					$('.subnav').mouseover(function(){
+						$(this).show();
+					})
+					$('.subnav').mouseout(function(){
+						$(this).hide();
+					})
+				}
+				,init:function(){
+					var Html = '<ul class="subnav"></ul>';
+					$('body').append(Html);
+					this.bind();
+				}
+			}
+			var nav = new Nav();
+			nav.init();
+		})
+	</script>
+	<style>
+	body{
+		font-family: MicroSoft YaHei;
+		/*font-size: 24px;*/
+	}
+	.subnav{
+		margin: 0 ;
+		padding: 6px 5px;
+	}
+	.subnav li{
+		line-height: 1.4em;
+		padding: 10px 25px;
+		background-color: #f1f1f1;
+		cursor: pointer;
+	}
+	nav{
+		width: 100%;
+		position: fixed;
+		background-color: #f1f1f1;
+	}
+	ul,ul li{
+		list-style: none;
+	}
+	nav ul{
+		margin: 0;
+	}
+	nav ul li{
+		display: inline-block;
+		line-height: 1.4em;
+		padding: 10px 20px;
+		cursor: pointer;
+	}
+	ul li:hover{
+		background-color: #999999;
+		color: #fff;
+	}
+	</style>
+</head>
+<body>
+	<nav id="nav">
+		<ul>
+			<li>首页</li>
+			<li>西电生活</li>
+			<li>西电往事</li>
+			<li>西电活动</li>
+		</ul>
+	</nav>
+</body>
+</html>

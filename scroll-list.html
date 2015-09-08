@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>list-animate</title>
+	<script src="jquery-2.1.4.min.js"></script>
+	<script>
+	$(document).ready(function(){
+		for (var i = 0; i < $('.content div').length; i++) {
+			$('.content div:eq('+i+')').scrollLeft((i-1)*parseInt($('.content div').width()));
+		};
+	})
+	</script>
+	<style>
+	*{
+		padding: 0;
+		margin: 0;
+	}
+	.main{
+		text-align: center;
+	}
+	.main .content{
+		position: relative;	
+		margin: 50px auto 0;
+		width: 200px;
+		height: 200px;
+
+	}
+	.main .content div{
+		/*position: absolute;*/
+/*		width: 200px;
+		height: 200px;*/
+		/*margin: 0 auto 0; */
+	}
+	img{
+		width: 200px;
+		height: 200px;
+	}
+	</style>
+</head>
+<body>
+	<div class="main">
+		<div class="head">
+			<button>Click Me</button>
+		</div>
+		<div class="content">
+
+				<div><img src="images/1.jpg" alt="#"></div>
+				<div><img src="images/2.jpg" alt="#"></div>
+				<div><img src="images/3.jpg" alt="#"></div>
+				<div><img src="images/4.jpg" alt="#"></div>
+
+		</div>
+	</div>
+</body>
+</html>

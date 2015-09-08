@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>slide-change</title>
+	<script src="jquery-2.1.4.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			$('.one p').hover(function(){
+				$('.one ul').slideUp('slow');
+			},function(){
+				$('.one ul').slideDown('slow');
+			})
+			// $('.two ul').toggle(function(){
+			// 	$(this).children().slideUp('slow');
+			// },function(){
+			// 	$(this).children().slideDown('slow');
+			// })			
+		})
+	</script>
+	<style>
+	.two p,.two ul{
+		/*display: none;*/
+	}
+	</style>
+</head>
+<body>
+	<div class="one">
+		<p>JQuery</p>
+		<ul>
+			<li>JQuery是一个强大的JavaScript库。</li>
+			<li>JQuery极大的简化了JavaScript编程。</li>
+			<li>JQuery很容易学习。</li>
+			<li>JQuery拥有供ajax开发的丰富函数。</li>
+		</ul>
+	</div>
+	<div class="two">
+		<p>JQuery</p>
+		<ul>
+			<li>JQuery是一个强大的JavaScript库。</li>
+			<li>JQuery极大的简化了JavaScript编程。</li>
+			<li>JQuery很容易学习。</li>
+			<li>JQuery拥有供ajax开发的丰富函数。</li>
+		</ul>
+	</div>	
+</body>
+</html>

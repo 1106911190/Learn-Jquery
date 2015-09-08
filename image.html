@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="jquery-2.1.4.min.js"></script>
+	<script>
+	$(document).ready(function(){
+
+			setInterval(function(){
+				var TOP = $('.one').scrollTop();
+				if(TOP >= parseInt($('.one img').height())*($('.one img').length-1)){
+					$('.one').scrollTop(0);
+				}else{				
+					$('.one').scrollTop(TOP + 20);
+				}
+			}, 100)			
+		// }
+
+	})
+	</script>
+	<style>
+	*{
+		padding: 0;
+		margin: 0;
+	}
+	img{
+		width: 300px;
+		height: 300px;
+		margin: 0;
+		float: left;
+		/*display: inline-block;*/
+	}
+	.one{
+		width: 300px;
+		height: 300px;
+		overflow: hidden;
+		margin: 100px auto 0;
+	}
+	.main{
+		/*width: 200px;*/
+
+	}
+	</style>
+</head>
+<body>
+	<!-- <div class="main"> -->
+	<div class="one">
+		<img src="images/1.jpg" alt="#">
+		<img src="images/2.jpg" alt="#">
+		<img src="images/3.jpg" alt="#">
+		<img src="images/4.jpg" alt="#">		
+
+	</div>
+	<!-- </div> -->
+</body>
+</html>

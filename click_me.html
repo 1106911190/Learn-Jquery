@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Click Me</title>
+	<script src="jquery-2.1.4.min.js"></script>
+	<script>
+	$(document).ready(function(){
+		$('body').append('<div class="div"></div>');
+		$('.div').css({
+			'width':'100px',
+			'height':'100px',
+			'backgroundColor':'#999999',
+			'margin':'50px auto 0'
+		});
+		// $('.control').toggle(function(){
+		// 	$('.div').animate({
+		// 		width:'300px',
+		// 		height:'300px'
+		// 	},'slow')
+		// },function(){
+		// 	$('.div').animate({
+		// 		width:'100px',
+		// 		height:'100px'
+		// 	})
+		// })
+		$('.control').click(function(){
+			// $('.div').toggle(function(){
+			// 	$('.div').animate({
+			// 		width:'300px',
+			// 		height:'300px'
+			// 	},'slow')
+			// },function(){
+			// 	$('.div').animate({
+			// 		width:'100px',
+			// 		height:'100px'
+			// 	},'slow')
+			// })
+			console.log(parseInt($('.div').css('width')));
+			if(parseInt($('.div').css('width')) == '100'){
+				$('.div').css({
+					'width':'300px',
+					'height':'300px',
+					'opacity':'1'
+				})
+			}else{
+				$('.div').css({
+					'width':'100px',
+					'height':'100px',
+					'opacity':'0'
+				})
+			}
+		})
+	})
+	</script>
+	<style>
+	body{
+		text-align: center;
+	}
+/*	.control{
+		display: none;
+	}*/
+	.div{
+		transition:0.5s;
+	}
+	</style>
+</head>
+<body>
+	<button class="control">Click Me</button>
+	
+</body>
+</html>
