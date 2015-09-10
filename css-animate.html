@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>CSS</title>
+	<style>
+	*{
+		padding: 0;
+		margin: 0;
+	}
+	.menu{
+		margin: 150px 170px;
+	}
+	ul.gallery li{
+		float: left;
+		margin: 0 10px;
+		padding: 10px;
+		border: 1px solid #ddd;
+		list-style: none;
+	}
+	ul.gallery li a img{
+		float: left;
+		width: 200px;
+		height: 100px;
+		transition:all 0.5s ease-in-out;
+	}
+	ul.gallery li a:hover img{
+		/*transform:scale(2)rotate(-10deg);*/
+		/*transform:scale(2)skew(30deg);*/
+		transform:scale(2)translate(20px,-40px);
+		box-shadow: 4px 4px 4px rgba(0,0,0,0.5)
+		/*transform-origin:bottom left;*/
+	}
+	</style>
+</head>
+<body>
+	<div class="menu">
+		<ul class="gallery">
+			<li><a href="#"><img src="images/1.jpg" alt="#"></a></li>
+			<li><a href="#"><img src="images/2.jpg" alt="#"></a></li>
+			<li><a href="#"><img src="images/3.jpg" alt="#"></a></li>
+			<li><a href="#"><img src="images/4.jpg" alt="#"></a></li>
+		</ul>
+	</div>
+</body>
+</html>

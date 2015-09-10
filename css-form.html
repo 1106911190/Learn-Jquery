@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>CSS-form</title>
+	<style>
+	*{
+		padding: 0;
+		margin: 0;
+	}
+	#thing{
+		margin: 50px 150px;
+		font-family: MicroSoft YaHei;
+		background-color: #f1f1f1;
+		padding: 15px 20px;
+	}
+	#thing fieldset{
+		margin: 0 0 10px 0;
+		border: none;
+	}
+	#thing input[type="text"]{
+		width: 215px;
+		padding: 5px 8px;
+		font-style:1.2em ;
+		color: #666;
+		border: none;
+		background-color: #fff;
+		border-radius: 4px;
+	}
+	#thing fieldset:last-child{
+		margin: 0;
+	}
+	#thing input[type="submit"]{
+		padding: 8px 15px;
+		font-weight: bold;
+		line-height: 1.1;
+		color: #444;
+		border: none;
+		border-radius:4px; 
+		margin: 10px 0px 5px;
+		background-color: #fff;
+	}
+	#thing label{
+		display: block;
+		margin: 8px 10px;
+		font-weight: bold;
+		line-height: 1.4;
+		color: rgba(0,0,0,0.6);
+		text-shadow:0 1px 1px #fff;
+	}
+	</style>
+</head>
+<body>
+	<form action="#" id="thing">
+		<fieldset>
+			<label for="alert-name">Your Name</label>
+			<input type="text" id="alert-name">
+		</fieldset>
+		<fieldset>
+			<label for="alert-email">Your Email</label>
+			<input type="text" id="alert-email">
+		</fieldset>
+		<fieldset>
+			<input type="submit" value="Subscribe">
+		</fieldset>
+	</form>
+</body>
+</html>
