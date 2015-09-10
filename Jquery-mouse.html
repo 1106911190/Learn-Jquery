@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>JQuery-Mouse</title>
+	<script src="jquery-2.1.4.min.js"></script>
+	<script>
+	$(document).ready(function(){
+		html1 = "<div id='click'>"
+				+ "This is for click"
+				+ "</div>";
+		html2 = "<div id='dblclick'>"
+				+ "This is for dblclick"
+				+ "</div>";		
+		html3 = "<div id='mousedown'>"
+				+ "This is for mousedown and mouseup"
+				+ "</div>";			
+		html4 = "<div id='mouseenter'>"
+				+ "This is for mouseenter and mouseleave"
+				+ "</div>";		
+		html5 = "<div id='mouseover'>"
+				+ "This is for mouseover and mouseout"
+				+ "</div>";												
+		$('body').append(html1);
+		$('body').append(html2);
+		$('body').append(html3);
+		$('body').append(html4);
+		$('body').append(html5);
+		$('#click').click({m:'hello world'},function(event){
+			alert(event.data.m);
+		});
+		/***************************************
+		*
+		*这里有必要记一下：
+		*B.append(A)是把A加到B里面的后面
+		*B.appendTo(A)是把B加到A里面的后面
+		*而A.after(B)是把B加到A外面的后面
+		*并不是把A加到B外面的后面
+		*
+		***************************************/
+		$('#dblclick').dblclick(function() {
+			$(this).after($('#click'));
+		});
+		$('#mousedown').mousedown(function(){
+			$(this).css('backgroundColor','red');
+		});
+		$('#mousedown').mouseup(function(){
+			$(this).css('backgroundColor','blue');
+		});
+		$('#mouseenter').mouseenter(function(){
+			$(this).css('backgroundColor','#999999');
+		});
+		$('#mouseenter').mouseleave(function(){
+			$(this).css('backgroundColor','#444444');
+		});
+		$('#mouseover').mouseover(function(){
+			$(this).css('backgroundColor','red');
+		});
+		$('#mouseover').mouseout(function(){
+			$(this).css('backgroundColor','yellow');
+		});
+	})
+	</script>	
+</head>
+<body>
+	
+</body>
+</html>
