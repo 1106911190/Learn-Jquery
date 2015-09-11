@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>JS-OOP</title>
+	<script src="jquery-2.1.4.min.js"></script>
+	<script>
+	$(document).ready(function(){
+        var People = {
+            Name: "lose.zhang",
+            Age: 30,
+            Enjon: ["C#", "JS", "SQL", "NoSQL", "SOA", "AOP", "IOC", "DynamicProxy", "OOD&DDP"],
+            Print: function (msg) {
+                console.log(msg);
+            },
+            Work: {
+                Name: "Software Architect",
+                Salary: "保密",
+                Print: function () {
+                    console.log("这个人：" + People.Name
+                    + ",他的年龄：" + People.Age
+                    + ",他的特长是：" + People.Enjon
+                    + ",它的职位是：" + this.Name
+                    + ",它的薪水是：" + this.Salary);
+                }
+            }
+        };
+        People.Work.Print();		
+	})
+	</script>
+</head>
+<body>
+	
+</body>
+</html>
