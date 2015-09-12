@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>AboutNews</title>
+	<script src="jquery-2.1.4.min.js"></script>
+	<script>	
+	$(document).ready(function(){
+		var newsArray = [
+			"This is the first thing About Xidian University",
+			"This is Second Yeah ,I want to stop it recently",
+			"Oh my god ,through God is a Girl ,but I don't want",
+			"Yeah it's too difficult to me to create a list",
+			"And it should be ten sentents and at least ten words",
+			"God please help me ,get me from the hell ",
+			"I can't tolerate ,I am about to explore",
+			"yeah,my sentents is more and more less",
+			"but I's not my fault I have try my best",
+			"Through it's has no use and useless",
+			"OK enought it's the last sentent."
+		]
+		var newslength = newsArray.length;
+		var newsInterval = 2000;
+		$("h1").after('<ul id="news-feed"></ul>');
+		for(i = 0;i<newslength;i++){
+			$("#news-feed").append('<li>' + newsArray[i] + '</li>')
+		}
+		function slideHeadline(){
+			$('#news-feed li:last').clone().prependTo('#news-feed').hide();
+			$('#news-feed li:first').fadeIn(1000).slideDown(1000);
+			$('#news-feed li:last').remove();
+		}
+		setInterval(slideHeadline,newsInterval);
+
+	})
+	</script>
+</head>
+<body>
+	<h1>JQuery Latest News</h1>
+</body>
+</html>
