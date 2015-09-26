@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>轮播</title>
+	<script src="jquery-2.1.4.min.js"></script>
+	<script>
+	var IntervalId = null;
+	function init(flag){
+		if(flag=="next"){
+			if($(".sign>li:last").hasClass('active')){
+				$(".sign>li:last").removeClass('active');
+				$(".menu>li:last").removeClass('active');
+				$(".sign>li:first").addClass('active');
+				$(".menu>li:first").addClass('active');
+			}else{		
+				$(".active").removeClass('active').next().addClass('active');
+			}			
+		}else{
+			if($(".sign>li:first").hasClass('active')){
+				$(".sign>li:first").removeClass('active');
+				$(".menu>li:first").removeClass('active');
+				$(".sign>li:last").addClass('active');
+				$(".menu>li:last").addClass('active');
+			}else{		
+				$(".active").removeClass('active').prev().addClass('active');
+			}			
+		}
+	}	
+	function restart(){
+		clearInterval(IntervalId);	
+		IntervalId = setInterval("init('next')",3000);				
+	}
+	$(document).ready(function(){
+		IntervalId = setInterval("init('next')",3000);
+		$(".sign>li").click(function(){
+			$(this).addClass('active').siblings().removeClass('active');
+			var num = $(this).index();
+			$(".menu>li:eq("+num+")").addClass('active').siblings().removeClass('active');
+			restart();
+		})
+		$(".admin>li").click(function(){
+			if($(this).attr('class')=="pre"){
+				init('pre')
+				restart();
+			}else{
+				init('next');	
+				restart();				
+			}
+		})
+		// $(".menu").hover(function() {
+		// 	clearInterval(IntervalId);	
+		// }, function() {
+		// 	IntervalId = setInterval("init('next')",3000);
+		// });
+	})
+	</script>
+	<style>
+	*{
+		margin: 0;
+		padding: 0;
+	}
+	.menu{
+		list-style: none;
+		position: relative;
+		width: 550px;
+		height: 300px;
+		overflow: hidden;
+		margin: 100px auto 0;
+	}
+	.menu>li{
+		position: absolute;
+		list-style: none;
+		opacity: 0;
+		transition:all 0.5s ease-in-out;		
+	}
+	.menu li img{
+		width: 550px;
+		height: 300px;
+	}
+	.menu>li.active{
+		opacity: 1;
+	}
+	.menu:hover .admin{
+		display: block;
+	}
+	.admin{
+		position: absolute;
+		list-style: none;
+		width: 100%;
+		z-index: 10;
+		top:50%;
+		margin-top: -25px;
+		overflow: hidden;
+		display: none;
+
+	}
+	.admin li{
+		width: 40px;
+		height: 40px;
+		color:white;
+		opacity: 0.5;
+		cursor: pointer;
+		font-size: 48px;
+		background-color: #000;
+		font-weight: bolder;
+		line-height: 40px;
+		padding: 5px;
+	}
+	.admin li:hover{
+		opacity: 1;
+	}
+	.pre{
+		float: left;
+		text-align: left;
+	}
+	.next{
+		float: right;
+		text-align: right;
+	}
+	.sign{
+		position: absolute;
+		bottom: 10px;
+		left: 50%;
+		margin-left: -70px;
+	}
+	.sign li.active{
+		background-color: #fff;
+		color:black;
+	}
+	.sign li:hover{
+		background-color: #fff;
+		color:black;
+	}
+	.sign li{
+		position: relative;
+		text-align: center;
+		background-color: #ccc;
+		color:white;
+		list-style: none;
+		cursor: pointer;
+		width: 25px;
+		height: 25px;
+		transition:all 0.5s ease-in-out;
+		float:left;
+		line-height: 25px;
+		overflow: hidden;
+		margin:0 5px 0;
+		border-radius:50%;
+	}
+	</style>
+</head>
+<body>
+	<ul class="menu">
+		<ul class="admin">
+			<li class="pre">&#60</li>
+			<li class="next">&#62</li>
+		</ul>
+		<li class="active"><img src="images/1.jpg" alt="#"></li>
+		<li><img src="images/2.jpg" alt="#"></li>
+		<li><img src="images/3.jpg" alt="#"></li>
+		<li><img src="images/4.jpg" alt="#"></li>
+		<ul class="sign">
+			<li class="active">1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+		</ul>
+	</ul>
+</body>
+</html>
