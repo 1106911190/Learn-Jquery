@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>轮播</title>
+	<script src="jquery-2.1.4.min.js"></script>
+	<script>
+	$(document).ready(function(){
+		for (var i = 0; i < $('.menu li').length; i++) {
+			$('.menu li:eq('+i+')').css({
+				'right':parseInt($('.menu li').width())*(i-1) + 'px'
+			})
+		};
+		setInterval(function(){
+		 for (var i = 0; i < $('.menu li').length; i++) {
+		    	var This = $('.menu li:eq('+i+')');
+		    	var right = parseInt(This.css('right'));
+				if(right >= ($('.menu li').length - 2)*parseInt(This.css('width'))){
+					This.css({
+						'right':'-' + parseInt(This.css('width')) + 'px'	
+					})
+				}else{
+					This.animate({
+						right:parseInt(right + $('.menu li').width()) +　'px'
+					})
+				}
+		    };  
+		},3000)
+
+	})
+	</script>
+	<style>
+	*{
+		margin: 0;
+		padding: 0;
+	}
+	.menu{
+		list-style: none;
+		/*display:inline;*/
+		position: relative;
+		width: 550px;
+		height: 300px;
+		overflow: hidden;
+		margin: 100px auto 0;
+	}
+	.menu li{
+		/*display: inline;*/
+		position: absolute;
+		list-style: none;
+		/*float: left;*/
+	}
+	.menu li img{
+		width: 550px;
+		height: 300px;
+	}
+	</style>
+</head>
+<body>
+	<ul class="menu">
+		<li><img src="images/1.jpg" alt="#"></li>
+		<li><img src="images/2.jpg" alt="#"></li>
+		<li><img src="images/3.jpg" alt="#"></li>
+		<li><img src="images/4.jpg" alt="#"></li>
+	</ul>
+</body>
+</html>
