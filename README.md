@@ -1,1 +1,1 @@
-This is my learn-JQuery demo
+This is my JQuery demo
