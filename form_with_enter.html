@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>FROM_WITH_ENTER</title>
+	<script src="jquery-2.1.4.min.js"></script>
+	<script>
+	jQuery(document).ready(function($) {
+		$("[name=submit]").click(function() {
+			$.get('form.php', function(data) {
+				alert("HELLO");
+			});
+			return false;
+		});
+	});
+	</script>
+</head>
+<body>
+	<!--
+		1. 在有submit的情况下,无论是button标签还是input标签，无论是否设定form表单的目的地址，按下enter都会直接发送出发，同时页面刷新。
+		2.在没有submit的情况下，如果只有一个input表单，按下enter直接发送出去，如果有两个input表单，按下enter无反应。
+		3.如果你需要ajax的话，且需要按下enter表单发送ajax但表单不发送出去，如果不需要submit，就设定一个submit，然后将其的display设定为none隐藏起来。把ajax的执行条件改为这个submit点击时执行，这个时候按下submit的效果就相当于点击submit，即激发ajax，但是在激发ajax之后，form表单也会自动提交，此时，需注意在ajax的最后设定return false。
+		5.如果需要设定submit，使按下submit的效果与按下enter的效果一致的话即把上个方法的submit显示出来即可。或者是使用onkeydown='if(event.keyCode==13){gosubmit();}'，然后在ajax的激发为此函数。如果需要点击submit时不发送form，即在onkeydown的时候就设定return false。
+		6.或者直接用将ajax的激发条件改为键盘按下激发，判断按下的为enter时发送ajax，那么这个时候，就可以直接在form表单的头部加上onsubmit="return false;"来禁止表单的自动提交
+	
+	-->
+	<form id="myform">
+		<label for="name">NAME</label>
+		<input type="text" name="name">
+		<br>
+		<label for="email">E_MAIL</label>
+		<input type="text" name="email">
+		<input type="submit" name="submit" value="submit" onkeydown='if(event.keyCode==13){postform(); return false;}'>
+		<!-- <button>SUBMIT</button> -->
+	</form>
+</body>
+</html>
